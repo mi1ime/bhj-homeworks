@@ -8,12 +8,12 @@ dropdownValues.forEach ((value, i) => {
 
     value.onclick = () => {
 
-        dropdowns[i].className = 'dropdown__list dropdown__list_active';
+        dropdowns[i].classList.toggle('dropdown__list_active');
         
         dropdownItems.forEach ((item) => {
         item.onclick = () => {
             value.textContent = item.textContent;
-            dropdowns[i].className = 'dropdown__list';
+            dropdowns[i].classList.toggle('dropdown__list_active');
             return false;
         }
     })

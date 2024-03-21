@@ -20,8 +20,9 @@ class Game {
     window.addEventListener('keydown', (userLetter) => {
       if (userLetter.key.toLowerCase() !== this.currentSymbol.textContent.toLowerCase()) {
         this.fail();
+      } else {
+        this.success();
       }
-      this.success();
     });
     
   }
