@@ -1,22 +1,25 @@
-const reveal = document.querySelector('.reveal');
+const reveals = document.querySelectorAll('.reveal');
 
-document.addEventListener('scroll', () => {
-    function onPage(el) {
-        const {top, bottom} = el.getBoundingClientRect();
+reveals.forEach((reveal, i) => {
+    document.addEventListener('scroll', () => {
+        function onPage(el) {
+            const {top, bottom} = el.getBoundingClientRect();
         
-        if (bottom < 0) {
-            el.className = 'reveal';
-            return;
+            if (bottom < 0) {
+                el.className = 'reveal';
+                return;
+            }
+            if (top > window.innerHeight) {
+                el.className = 'reveal';
+                return;
+            }
+            el.className = 'reveal reveal_active';
         }
-        if (top > window.innerHeight) {
-            el.className = 'reveal';
-            return;
-        }
-        el.className = 'reveal reveal_active';
-    }
 
-    onPage(reveal);
+        onPage(reveal);
+    })
 })
+
     
 
 
